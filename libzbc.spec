@@ -15,6 +15,7 @@ Group:		Libraries
 Source0:	https://github.com/hgst/libzbc/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	f2be03832fface56f94dc4bc625bb46c
 Patch0:		%{name}-format.patch
+Patch1:		%{name}-no-common.patch
 URL:		https://github.com/hgst/libzbc
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
@@ -88,6 +89,7 @@ Narzędzia dla libzbc z graficznym interfejsem użytkownika.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
