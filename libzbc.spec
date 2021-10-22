@@ -1,22 +1,20 @@
 #
 # Conditional build:
-%bcond_without	apidocs		# do not build and package API docs
+%bcond_without	apidocs		# API documentation
 %bcond_without	gtk		# GTK+ 3 based GUI
-%bcond_without	static_libs	# don't build static libraries
+%bcond_without	static_libs	# static library
 #
 Summary:	Library for accessing and managing ZBC/ZAC devices
 Summary(pl.UTF-8):	Biblioteka do dostępu i zarządzania urządzeniami ZBC/ZAC
 Name:		libzbc
-Version:	5.8.5
+Version:	5.12.0
 Release:	1
 License:	BSD or LGPL v3+
 Group:		Libraries
-#Source0Download: https://github.com/hgst/libzbc/releases
-Source0:	https://github.com/hgst/libzbc/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	f2be03832fface56f94dc4bc625bb46c
-Patch0:		%{name}-format.patch
-Patch1:		%{name}-no-common.patch
-URL:		https://github.com/hgst/libzbc
+#Source0Download: https://github.com/westerndigitalcorporation/libzbc/releases
+Source0:	https://github.com/westerndigitalcorporation/libzbc/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	d1d1599637a7c4856052d0bec5a8dc49
+URL:		https://github.com/westerndigitalcorporation/libzbc
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
 %{?with_apidocs:BuildRequires:	doxygen}
@@ -86,8 +84,6 @@ Narzędzia dla libzbc z graficznym interfejsem użytkownika.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -125,7 +121,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYING.BSD README.md
 %attr(755,root,root) %{_bindir}/zbc_*
-%attr(755,root,root) %{_libdir}/libzbc-%{version}.so
+%attr(755,root,root) %{_libdir}/libzbc.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libzbc.so.5
+%{_mandir}/man8/zbc_*.8*
 
 %files devel
 %defattr(644,root,root,755)
@@ -150,4 +148,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gzbc
 %attr(755,root,root) %{_bindir}/gzviewer
+%{_mandir}/man8/gzbc.8*
+%{_mandir}/man8/gzviewer.8*
 %endif
