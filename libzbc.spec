@@ -7,13 +7,13 @@
 Summary:	Library for accessing and managing ZBC/ZAC devices
 Summary(pl.UTF-8):	Biblioteka do dostępu i zarządzania urządzeniami ZBC/ZAC
 Name:		libzbc
-Version:	5.12.0
+Version:	5.13.0
 Release:	1
 License:	BSD or LGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/westerndigitalcorporation/libzbc/releases
 Source0:	https://github.com/westerndigitalcorporation/libzbc/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	d1d1599637a7c4856052d0bec5a8dc49
+# Source0-md5:	41873fdc14089c89297abdfe63fa21bc
 URL:		https://github.com/westerndigitalcorporation/libzbc
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
