@@ -7,13 +7,13 @@
 Summary:	Library for accessing and managing ZBC/ZAC devices
 Summary(pl.UTF-8):	Biblioteka do dostępu i zarządzania urządzeniami ZBC/ZAC
 Name:		libzbc
-Version:	5.14.0
+Version:	6.2.0
 Release:	1
 License:	BSD or LGPL v3+
 Group:		Libraries
 #Source0Download: https://github.com/westerndigitalcorporation/libzbc/releases
 Source0:	https://github.com/westerndigitalcorporation/libzbc/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	97f09097b548e18624ad3ed892124ced
+# Source0-md5:	dc09ad813d878c17fd09d97731b17e1b
 URL:		https://github.com/westerndigitalcorporation/libzbc
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.11
@@ -122,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING.BSD README.md
 %attr(755,root,root) %{_bindir}/zbc_*
 %attr(755,root,root) %{_libdir}/libzbc.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libzbc.so.5
+%attr(755,root,root) %ghost %{_libdir}/libzbc.so.6
 %{_mandir}/man8/zbc_*.8*
 
 %files devel
@@ -148,6 +148,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gzbc
 %attr(755,root,root) %{_bindir}/gzviewer
+%{_datadir}/polkit-1/actions/org.gnome.gzbc.policy
+%{_datadir}/polkit-1/actions/org.gnome.gzviewer.policy
+%{_desktopdir}/gzbc.desktop
+%{_desktopdir}/gzviewer.desktop
+%{_pixmapsdir}/gzbc.png
+%{_pixmapsdir}/gzviewer.png
 %{_mandir}/man8/gzbc.8*
 %{_mandir}/man8/gzviewer.8*
 %endif
